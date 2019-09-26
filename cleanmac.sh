@@ -9,9 +9,9 @@ show() {
     ps aux | grep -i "$arg" | grep -v grep | grep -v cleanmac
 }
 
-kill() {
+killapp() {
     arg=$1
-    `show $arg` | awk '{print $2}' | while read pid; do echo "$pid"; sudo kill -9 $pid; done
+    show $arg | awk '{print $2}' | while read pid; do echo "$pid"; sudo kill -9 $pid; done
 }
 
 check() {
@@ -81,7 +81,7 @@ fi
 if (( $isKill > 0 ))
 then
     echo "kill app $app ..."
-    show $app
+    killapp $app
     echo
 fi
 
