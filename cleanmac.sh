@@ -16,9 +16,15 @@ kill() {
 
 check() {
     arg=$1
+    echo "check /Library/LaunchAgents ..."
     ls -l /Library/LaunchAgents/ | grep -i "$arg"
+    echo
+    echo "check /Library/LaunchDaemons ..."
     ls -l /Library/LaunchDaemons/ | grep -i "$arg"
+    echo
+    echo "check /Library/StartupItems ..."
     ls -l /Library/StartupItems/ | grep -i "$arg"
+    echo
 }
 
 gettestopt() {
