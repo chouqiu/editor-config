@@ -4,9 +4,17 @@ app=""
 isKill=0
 isShow=0
 
-show() {
+showProc() {
     arg=$1
     ps aux | grep -i "$arg" | grep -v grep | grep -v cleanmac
+}
+
+showApp() {
+    arg=$1
+    echo "showApp on /Applications/ ..."
+    ls -l /Applications/* | grep -i "$arg"
+    echo "showApp on ~/Applications/ ..."
+    ls -l ~/Applications/* | grep -i "$arg"
 }
 
 killapp() {
@@ -70,8 +78,9 @@ gettestopt $@
 
 if (( $isShow > 0 ))
 then
-    echo "show app $app ..."
-    show $app
+    echo "show app-process $app ..."
+    showProc $app
+    showApp $app
     echo
     echo "check app $app ..."
     check $app
