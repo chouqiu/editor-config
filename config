@@ -1,0 +1,7 @@
+Host *
+    GSSAPIAuthentication yes
+    GSSAPIDelegateCredentials no
+Host 10.*
+    StrictHostKeyChecking no
+    GSSAPIAuthentication yes
+    GSSAPIDelegateCredentials no
